@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모임 배경사진</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 414px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 상단 네비게이션 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #dfe6e9;
+        }
+
+        .top-nav .back-btn {
+            font-size: 20px;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+
+        .top-nav .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .top-nav .more-btn {
+            font-size: 20px;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+
+        /* 타이틀 */
+        .main-title {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* 탭 */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #2c3e50, #4a6278);
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab:hover {
+            background: linear-gradient(135deg, #34495e, #5a738c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 내용 영역 */
+        .content {
+            padding: 0 15px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .member-list, .post, .poll {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .member-list p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .post .image-placeholder, .poll .image-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #d3d3d3;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .poll .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .poll .option {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+
+        .poll .option input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 네비게이션 -->
+        <div class="top-nav">
+            <span class="back-btn" onclick="history.back()">←</span>
+            <span class="title">모임 이름</span>
+            <span class="more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">⋮</span>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" onclick="confirmLeave()">회원 탈퇴</button>
+            </div>
+        </div>
+
+        <!-- 타이틀 -->
+        <div class="main-title">모임 배경사진</div>
+
+        <!-- 예시 이미지 -->
+        <div class="section">
+            <div class="section-title">모임 배경사진</div>
+            <div class="post">
+                <div class="image-placeholder">이미지</div>
+            </div>
+        </div>
+
+        <!-- 탭 -->
+        <div class="tabs">
+            <button class="tab" data-toggle="collapse" data-target="#membersList">회원목록</button>
+            <button class="tab">회원 탈퇴</button>
+        </div>
+
+        <!-- 내용 -->
+        <div class="content">
+            <!-- 회원목록 -->
+            <div id="membersList" class="collapse">
+                <div class="section">
+                    <div class="member-list">
+                        <p>회원 목록 내용이 여기에 표시됩니다.<br>회원 1<br>회원 2<br>회원 3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 게시물 1 -->
+            <div class="section">
+                <div class="section-title">게시물 1</div>
+                <div class="post">
+                    <div class="image-placeholder">이미지</div>
+                </div>
+            </div>
+
+            <!-- 투표 1 -->
+            <div class="section">
+                <div class="section-title">투표</div>
+                <div class="poll">
+                    <div class="image-placeholder">이미지</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="poll" value="option1"> 옵션 1
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="poll" value="option2"> 옵션 2
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // 탈퇴 확인 팝업
+        function confirmLeave() {
+            if (confirm("탈퇴 하시겠습니까?")) {
+                alert("탈퇴가 완료되었습니다.");
+            }
+        }
+    </script>
+</body>
+</html>

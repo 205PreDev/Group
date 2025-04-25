@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 메뉴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 414px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        a {
+            display: block;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .top-nav {
+            width: 100%;
+            max-width: 414px;
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .top-nav .back-btn {
+            font-size: 18px;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .top-nav .title {
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 뒤로가기 -->
+    <div class="top-nav">
+        <a href="javascript:history.back()" class="back-btn">←</a>
+        <span class="title">프로필</span>
+        <span style="width: 24px;"></span> <!-- 공간 정렬용 -->
+    </div>
+
+    <!-- 프로필 메뉴 목록 -->
+    <div class="container">
+        <a href="pro.html">개인 정보 및 수정</a>
+        <a href="interests_meetings.html">관심 모임, 초대 받은 모임</a>
+        <a href="#">설정</a>
+        <a href="#">포인트 관리</a>
+        <a href="#">활동 내역</a>
+        <a href="#">소셜 미디어 계정 연동</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기 - OOO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #1a2a3a;
+            color: #e0e0e0;
+        }
+
+        /* Header 스타일 */
+        header {
+            background-color: #0d1721;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-button, .notification-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        /* Main 스타일 */
+        main {
+            padding: 16px;
+        }
+
+        .category-dropdown, .title-input, .content-textarea {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #4a5a6a;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #2a3a4a;
+            color: #e0e0e0;
+        }
+
+        textarea {
+            height: 200px;
+            resize: vertical;
+        }
+
+        /* Footer 스타일 */
+        footer {
+            background-color: #0d1721;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .footer-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #2a3a4a;
+            color: #e0e0e0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .footer-buttons button:hover {
+            background-color: #3a4a5a;
+        }
+
+        /* 작성 버튼 스타일 */
+        .write-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .write-button {
+            padding: 10px 20px;
+            background-color: #3a5a7a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .write-button:hover {
+            background-color: #4a6a8a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <button class="back-button">←</button>
+            <h1>글쓰기 - OOO</h1>
+            <button class="notification-button">🔔</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="category-dropdown">
+            <label for="category">카테고리 선택:</label>
+            <select id="category" name="category">
+                <option value="category1">카테고리1</option>
+                <option value="category2">카테고리2</option>
+                <option value="category3">카테고리3</option>
+            </select>
+        </div>
+
+        <div class="title-input">
+            <label for="title">게시글 제목 입력칸:</label>
+            <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
+        </div>
+
+        <div class="content-textarea">
+            <label for="content">게시글 본문 입력칸:</label>
+            <textarea id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+        </div>
+
+        <div class="write-button-container">
+            <button class="write-button">작성</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-buttons">
+            <button>글꼴</button>
+            <button>사진 첨부</button>
+            <button>영상 첨부</button>
+        </div>
+    </footer>
+</body>
+</html>

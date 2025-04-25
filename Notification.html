@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>알림 페이지</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 375px; /* 모바일 앱 사이즈 */
+            height: 100vh;
+            background-color: #fff;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header .back-arrow {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .header .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 알림 목록 스타일 */
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .notification-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .notification-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .notification-item i {
+            font-size: 24px;
+            color: #ff6f61;
+            margin-right: 15px;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-content .message {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .notification-content .time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 모바일 최적화 */
+        @media (max-width: 375px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header .title {
+                font-size: 16px;
+            }
+
+            .notification-item {
+                padding: 10px;
+            }
+
+            .notification-content .message {
+                font-size: 12px;
+            }
+
+            .notification-content .time {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <i class="fas fa-arrow-left back-arrow" onclick="history.back()"></i>
+            <div class="title">알림</div>
+        </div>
+
+        <!-- 알림 목록 -->
+        <div class="notification-list">
+            <!-- 모임 초대 알림 -->
+            <div class="notification-item" onclick="location.href='meeting-intro.html'">
+                <i class="fas fa-users"></i>
+                <div class="notification-content">
+                    <div class="message">"하브루타" 모임에서 초대했습니다.</div>
+                    <div class="time">2025-04-03 10:30</div>
+                </div>
+            </div>
+
+            <!-- 모임 소개 알림 -->
+            <div class="notification-item" onclick="location.href='chat.html'">
+                <i class="fas fa-user"></i>
+                <div class="notification-content">
+                    <div class="message">김민수님이 소개했습니다: "테니스강좌 모임"</div>
+                    <div class="time">2025-04-03 09:15</div>
+                </div>
+            </div>
+
+            <!-- 공지사항 알림 -->
+            <div class="notification-item" onclick="location.href='announcement.html'">
+                <i class="fas fa-bullhorn"></i>
+                <div class="notification-content">
+                    <div class="message">"독서강좌" 모임에서 공지사항이 등록되었습니다.</div>
+                    <div class="time">2025-04-02 18:45</div>
+                </div>
+            </div>
+
+            <!-- 수난한 메시지 알림 -->
+            <div class="notification-item" onclick="location.href='chat.html'">
+                <i class="fas fa-envelope"></i>
+                <div class="notification-content">
+                    <div class="message">이수진님이 메시지를 보냈습니다: "안녕, 이번 주 모임 어때?"</div>
+                    <div class="time">2025-04-02 14:20</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

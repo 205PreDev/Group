@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 414px;
+            margin: 0 auto;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-nav .search {
+            font-size: 20px;
+            color: #666;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .top-nav .icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-nav .icons span {
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .title {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .category-section {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .category-section h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card .image-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #d3d3d3;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .card .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            max-width: 414px;
+            margin: 0 auto;
+        }
+
+        .bottom-nav .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .bottom-nav .nav-item.active {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <a href="Search.html" class="search">🔍 검색</a>
+            <div class="icons">
+                <span onclick="location.href='Notification.html'">🔔</span>
+                <span>💬</span>
+                <span onclick="location.href='SetArea.html'">📍</span>
+            </div>
+        </div>
+
+        <div class="title">피드</div>
+
+        <div class="category-section">
+            <!-- 독서 모임 -->
+            <div class="card">
+                <img src="https://source.unsplash.com/featured/?book,reading" alt="독서 모임 이미지" class="image-placeholder">
+                <div class="info">
+                    <span>책벌레들의 밤 • 강남역 카페 • 19:00</span>
+                    <span class="chat-icon">5</span>
+                </div>
+            </div>
+
+            <!-- 테니스 -->
+            <div class="card">
+                <img src="https://source.unsplash.com/featured/?tennis,sports" alt="테니스 모임 이미지" class="image-placeholder">
+                <div class="info">
+                    <span>주말 테니스 한판 • 잠실코트 • 10:00</span>
+                    <span class="chat-icon">12</span>
+                </div>
+            </div>
+
+            <!-- 코딩 스터디 -->
+            <div class="card">
+                <img src="https://source.unsplash.com/featured/?coding,programming,laptop" alt="코딩 스터디 이미지" class="image-placeholder">
+                <div class="info">
+                    <span>프론트엔드 스터디 • 합정 공유오피스 • 14:00</span>
+                    <span class="chat-icon">8</span>
+                </div>
+            </div>
+
+            <!-- 등산 -->
+            <div class="card">
+                <img src="https://source.unsplash.com/featured/?hiking,mountain" alt="등산 모임 이미지" class="image-placeholder">
+                <div class="info">
+                    <span>북한산 트레킹 • 북한산 입구 • 07:30</span>
+                    <span class="chat-icon">20</span>
+                </div>
+            </div>
+
+                                           
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="main.html" class="nav-item active">
+            <span>🏠</span>
+            Home
+        </a>
+        <a href="class.html" class="nav-item">
+            <span>👥</span>
+            내 모임
+        </a>
+        <a href="CreateGroup.html" class="nav-item">
+            <span>📝</span>
+            모임 만들기
+        </a>
+        <a href="board.html" class="nav-item">
+            <span>📜</span>
+            게시글
+        </a>
+        <a href="Profile.html" class="nav-item">
+            <span>👤</span>
+            Profile
+        </a>
+    </div>
+</body>
+</html>

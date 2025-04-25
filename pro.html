@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>프로필</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 390px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #dfe6e9;
+    }
+
+    .back-btn {
+      font-size: 20px;
+      color: #2c3e50;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .empty {
+      width: 20px;
+    }
+
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .photo-placeholder {
+      width: 100px;
+      height: 100px;
+      background-color: #d3d3d3;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .photo-placeholder:hover {
+      background-color: #c0c0c0;
+    }
+
+    .form-group {
+      padding: 0 15px;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .form-group label span {
+      color: red;
+      margin-left: 3px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dfe6e9;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+      outline: none;
+    }
+
+    .form-group.invalid input,
+    .form-group.invalid textarea {
+      border-color: #e74c3c;
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .save-btn {
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto 15px; /* 가운데 정렬용 */
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2c3e50, #4a6278);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .save-btn:hover {
+      background: linear-gradient(135deg, #34495e, #5a738c);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-nav">
+        <span class="back-btn" onclick="goBack()">←</span>
+        <span class="title">프로필</span>
+        <span class="empty"></span>
+    </div>
+
+    <div class="profile-photo">
+      <div class="photo-placeholder">📷</div>
+    </div>
+
+    <div class="form-group" id="group-name">
+      <label for="name">이름<span>*</span></label>
+      <input type="text" id="name" placeholder="이름을 입력하세요" />
+    </div>
+
+    <div class="form-group" id="group-bio">
+      <label for="bio">소개<span>*</span></label>
+      <textarea id="bio" placeholder="소개를 입력하세요"></textarea>
+    </div>
+
+    <div class="form-group" id="group-location">
+      <label for="location">지역<span>*</span></label>
+      <input type="text" id="location" placeholder="지역을 입력하세요" />
+    </div>
+
+    <div class="form-group" id="group-interests">
+      <label for="interests">관심사<span>*</span></label>
+      <input type="text" id="interests" placeholder="관심사를 입력하세요" />
+    </div>
+
+    <button class="save-btn" onclick="saveProfile()">저장</button>
+  </div>
+
+  <script>
+    function saveProfile() {
+      const fields = ["name", "bio", "location", "interests"];
+      let isValid = true;
+      const data = {};
+
+      fields.forEach((field) => {
+        const input = document.getElementById(field);
+        const group = document.getElementById(`group-${field}`);
+        if (!input.value.trim()) {
+          group.classList.add("invalid");
+          isValid = false;
+        } else {
+          group.classList.remove("invalid");
+          data[field] = input.value.trim();
+        }
+      });
+
+      if (isValid) {
+        alert("프로필이 저장되었습니다!");
+        console.log("저장된 프로필 데이터:", JSON.stringify(data, null, 2));
+      } else {
+        alert("모든 필드를 입력해주세요.");
+      }
+    }
+    function goBack() {
+        window.history.back(); // 또는 history.go(-1);
+    }
+  </script>
+</body>
+</html>
