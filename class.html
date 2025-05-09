@@ -33,7 +33,6 @@
             flex-direction: column;
         }
 
-        /* 상단 네비게이션 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -61,7 +60,6 @@
             cursor: pointer;
         }
 
-        /* 타이틀 */
         .main-title {
             padding: 15px;
             font-size: 24px;
@@ -70,7 +68,6 @@
             text-align: center;
         }
 
-        /* 탭 */
         .tabs {
             display: flex;
             justify-content: space-around;
@@ -96,7 +93,6 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
-        /* 내용 영역 */
         .content {
             padding: 0 15px;
         }
@@ -126,7 +122,7 @@
 
         .post .image-placeholder, .poll .image-placeholder {
             width: 100%;
-            height: 150px;
+            aspect-ratio: 4 / 3;
             background-color: #d3d3d3;
             border-radius: 8px;
             display: flex;
@@ -160,10 +156,12 @@
         <!-- 상단 네비게이션 -->
         <div class="top-nav">
             <span class="back-btn" onclick="history.back()">←</span>
-            <span class="title">전국 투어 모임</span>
-            <span class="more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">⋮</span>
-            <div class="dropdown-menu">
-                <button class="dropdown-item" onclick="confirmLeave()">회원 탈퇴</button>
+            <span class="title">식도락 탐험대</span>
+            <div class="dropdown">
+                <span class="more-btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">⋮</span>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" id="toggleNotification">이 그룹 알림 끄기</button>
+                </div>
             </div>
         </div>
 
@@ -171,7 +169,7 @@
         <div class="section" style="margin-top: 50px;">
             <div class="section-title">모임 배경사진</div>
             <div class="post">
-                <div class="image-placeholder">이미지</div>
+                <div class="image-placeholder"><img src="assets/img/sikdorak.png"></div>
             </div>
         </div>
 
@@ -193,27 +191,26 @@
             </div>
 
             <!-- 게시물 1 -->
-            <!-- 게시물 1 -->
             <div class="section">
-                <div class="section-title">이번 주 베스트 메뉴!</div>
+                <div class="section-title">이번 주 맛집 탐방 후기</div>
                 <div class="post">
-                    <div class="image-placeholder">이미지</div>
-                    <div>여러분이 가장 좋아하는 이번 주 식당 메뉴는 무엇인가요?</div>
+                    <div class="image-placeholder"><img src="assets/img/noodle.jpg"></div>
+                    <div>지난 주 다녀온 부산 해운대의 밀면집, 국물까지 완벽했어요! 여러분은 어디 다녀오셨나요?</div>
                 </div>
+                
             </div>
-
 
             <!-- 투표 1 -->
             <div class="section">
-                <div class="section-title">투표</div>
+                <div class="section-title">다음 주 탐방지는?</div>
                 <div class="poll">
-                    <div class="image-placeholder">이미지</div>
+                    <div class="image-placeholder">사진</div>
                     <div class="options">
                         <label class="option">
-                            <input type="radio" name="poll" value="option1"> 옵션 1
+                            <input type="radio" name="poll" value="option1"> 대전 성심당 튀김소보로
                         </label>
                         <label class="option">
-                            <input type="radio" name="poll" value="option2"> 옵션 2
+                            <input type="radio" name="poll" value="option2"> 전주 한옥마을 비빔밥
                         </label>
                     </div>
                     <button class="tab" style="margin-left: auto; display: block;">확인</button>
@@ -221,18 +218,22 @@
             </div>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // 탈퇴 확인 팝업
-        function confirmLeave() {
-            if (confirm("탈퇴 하시겠습니까?")) {
-                alert("탈퇴가 완료되었습니다.");
-            }
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleItem = document.getElementById("toggleNotification");
+    
+            toggleItem.addEventListener("click", function () {
+                if (toggleItem.innerText === "이 그룹 알림 끄기") {
+                    toggleItem.innerText = "이 그룹 알림 켜기";
+                    alert("알림이 꺼졌습니다.");
+                } else {
+                    toggleItem.innerText = "이 그룹 알림 끄기";
+                    alert("알림이 켜졌습니다.");
+                }
+            });
+        });
     </script>
 </body>
 </html>

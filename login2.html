@@ -91,22 +91,18 @@
         .verify-btn:hover {
             background-color: #218838;
         }
-        .google-btn, .kakao-btn {
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
+        .google-btn {
+            background-color: #ffffff;
+            color: #4285f4;
+            border: 1px solid #4285f4;
+            padding: 10px 20px;
+            width: 100%;
             border-radius: 8px;
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 10px 0;
-        }
-        .google-btn {
-            border: 1px solid #4285f4;
-            color: #4285f4;
         }
         .google-btn:hover {
             background-color: #f8f9fa;
@@ -115,12 +111,25 @@
         }
         .google-btn::before {
             content: 'G';
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #4285f4;
             margin-right: 8px;
         }
+
         .kakao-btn {
             background-color: #fee500;
             color: #3c1e1e;
             border: 1px solid #fee500;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
         }
         .kakao-btn:hover {
             background-color: #e4d100;
@@ -129,6 +138,10 @@
         }
         .kakao-btn::before {
             content: 'K';
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #3c1e1e;
             margin-right: 8px;
         }
         .links {
