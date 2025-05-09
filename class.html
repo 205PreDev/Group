@@ -149,6 +149,20 @@
         .poll .option input {
             margin-right: 10px;
         }
+
+        .image-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .image-fit {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 중요 */
+        }
     </style>
 </head>
 <body>
@@ -165,11 +179,10 @@
             </div>
         </div>
 
-        <!-- 예시 이미지 -->
         <div class="section" style="margin-top: 50px;">
             <div class="section-title">모임 배경사진</div>
             <div class="post">
-                <div class="image-placeholder"><img src="assets/img/sikdorak.png"></div>
+                <div class="image-wrapper"><img src="assets/img/sikdorak.png" class="image-fit"></div>
             </div>
         </div>
 
@@ -194,7 +207,7 @@
             <div class="section">
                 <div class="section-title">이번 주 맛집 탐방 후기</div>
                 <div class="post">
-                    <div class="image-placeholder"><img src="assets/img/noodle.jpg"></div>
+                    <div class="image-wrapper"><img src="assets/img/noodle.jpg" class="image-fit"></div>
                     <div>지난 주 다녀온 부산 해운대의 밀면집, 국물까지 완벽했어요! 여러분은 어디 다녀오셨나요?</div>
                 </div>
                 
@@ -204,7 +217,7 @@
             <div class="section">
                 <div class="section-title">다음 주 탐방지는?</div>
                 <div class="poll">
-                    <div class="image-placeholder">사진</div>
+                    <div class="image-wrapper"><img src="" class="image-fit"></div>
                     <div class="options">
                         <label class="option">
                             <input type="radio" name="poll" value="option1"> 대전 성심당 튀김소보로
