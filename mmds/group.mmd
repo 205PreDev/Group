@@ -1,0 +1,40 @@
+C4Context
+    title Grouping 시스템 컨텍스트 다이어그램
+
+    Person(user, "사용자", "모임 관리 서비스를 이용하는 일반 사용자")
+    Person(admin, "관리자", "시스템을 관리하는 관리자")
+
+    System_Boundary(system, "Grouping 웹앱") {
+        System(mainPage, "메인 피드", "모임 피드 및 추천 모임 확인")
+        System(board, "게시판", "모임별 게시글 목록 및 작성")
+        System(profile, "프로필", "사용자 정보 및 관심사 관리")
+        System(notification, "알림", "모임 초대, 알림 등 확인")
+        System(groupManagement, "모임 생성/관리", "새 모임 생성 및 관리")
+        System(search, "검색", "모임 및 활동 검색")
+        System(areaSetting, "지역 설정", "관심 지역 설정")
+        System(auth, "로그인/회원가입", "사용자 인증")
+    }
+
+    System_Ext(externalDB, "외부 DB/스토리지", "사용자, 모임, 게시글, 알림 등 데이터 저장")
+    System_Ext(externalMail, "이메일 시스템", "알림/초대 이메일 발송")
+
+    Rel(user, mainPage, "피드/모임 확인")
+    Rel(user, board, "게시글 작성/조회")
+    Rel(user, profile, "프로필 관리")
+    Rel(user, notification, "알림 확인")
+    Rel(user, groupManagement, "모임 생성/참여")
+    Rel(user, search, "모임/게시글 검색")
+    Rel(user, areaSetting, "지역 설정")
+    Rel(user, auth, "로그인/회원가입")
+
+    Rel(mainPage, externalDB, "모임/피드 데이터 조회")
+    Rel(board, externalDB, "게시글 데이터 CRUD")
+    Rel(profile, externalDB, "프로필 데이터 CRUD")
+    Rel(notification, externalDB, "알림 데이터 조회")
+    Rel(groupManagement, externalDB, "모임 데이터 CRUD")
+    Rel(search, externalDB, "검색 데이터 조회")
+    Rel(areaSetting, externalDB, "지역 데이터 저장")
+    Rel(auth, externalDB, "사용자 인증/정보")
+
+    Rel(notification, externalMail, "이메일 발송")
+    Rel(admin, mainPage, "시스템 관리")

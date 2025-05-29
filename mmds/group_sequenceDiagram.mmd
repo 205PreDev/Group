@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant User as 사용자
+    participant Admin as 관리자
+    participant WebApp as Grouping 웹앱
+    participant DB as 외부 DB/스토리지
+    participant Mail as 이메일 시스템
+
+    User->>WebApp: 로그인/회원가입 요청
+    WebApp->>DB: 사용자 인증/정보 확인
+    DB-->>WebApp: 인증 결과 반환
+    WebApp-->>User: 로그인/회원가입 결과
+
+    User->>WebApp: 메인 피드/게시판/프로필/알림/모임 생성/검색/지역 설정 요청
+    WebApp->>DB: 관련 데이터 조회/저장/수정
+    DB-->>WebApp: 데이터 반환
+    WebApp-->>User: 화면 표시
+
+    User->>WebApp: 알림 확인
+    WebApp->>DB: 알림 데이터 조회
+    DB-->>WebApp: 알림 데이터 반환
+    WebApp-->>User: 알림 표시
+    WebApp->>Mail: 이메일 발송(초대/알림)
+    Mail-->>User: 이메일 수신
+
+    Admin->>WebApp: 시스템 관리
+    WebApp->>DB: 관리 데이터 처리
+    DB-->>WebApp: 처리 결과
+    WebApp-->>Admin: 관리 결과 표시

@@ -1,0 +1,43 @@
+classDiagram
+    class User {
+        +로그인()
+        +회원가입()
+        +피드확인()
+        +게시글작성()
+        +프로필관리()
+        +알림확인()
+        +모임생성()
+        +모임참여()
+        +검색()
+        +지역설정()
+    }
+
+    class Admin {
+        +시스템관리()
+    }
+
+    class GroupingWebApp {
+        +메인피드()
+        +게시판()
+        +프로필()
+        +알림()
+        +모임생성관리()
+        +검색()
+        +지역설정()
+        +로그인회원가입()
+    }
+
+    class ExternalDB {
+        +데이터저장()
+        +데이터조회()
+        +데이터수정()
+    }
+
+    class ExternalMail {
+        +이메일발송()
+    }
+
+    User "1" -- "1" GroupingWebApp : 이용
+    Admin "1" -- "1" GroupingWebApp : 관리
+    GroupingWebApp "1" -- "1" ExternalDB : 데이터연동
+    GroupingWebApp "1" -- "1" ExternalMail : 이메일연동
